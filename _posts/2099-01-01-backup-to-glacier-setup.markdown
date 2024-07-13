@@ -8,9 +8,9 @@ categories: backup
 This post will go through details of how I setup AWS account and
 S3 bucket for this use case, using the AWS web console.
 
-Again, I'm not a specialist, but this seems to work for me and my use case.
+Again, I'm not ane expert, but this seems to work for me and my use case.
 I went through these steps manually in the Amazon web console UI, it's of
-course possible to automate this, maybe for another time.
+course possible to automate this. Maybe for another time.
 
 ### Budget
 
@@ -28,9 +28,10 @@ other on "Forecasted" cost, with my email as recipient.
 The numbers are of course too low, the idea is to slowly increase those
 when I get a good grasp on actual total costs.
 
-Also note that, at least to my understanding, those are just alerts,
-and there is no way to set hard limits, you can totally blow through your
-budget. Be careful.
+Also note that, those are just alerts, and, at least to my understanding,
+there is no way to set hard limits: you can totally blow through your
+budget. Be careful, upload things slowly to make sure your computations
+are correct.
 
 ### IAM identities
 
