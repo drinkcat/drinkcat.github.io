@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AWS S3 setup for backups"
-date: 2024-07-10 21:20:45+08:00
+date: 2024-07-13 16:40:06+08:00
 categories: backup
 ---
 
