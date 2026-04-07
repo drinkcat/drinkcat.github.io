@@ -15,6 +15,13 @@ blockquote {
   flex: 1;
 }
 
+.footnotes {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 2em;
+  padding-top: 1em;
+  font-size: 0.9em;
+}
+
 .lightbox {
   display: none;
   position: fixed;

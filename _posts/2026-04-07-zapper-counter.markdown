@@ -7,7 +7,7 @@ description: "I installed a bug zapper in my house. I know it zaps, but somethin
 excerpt: "So I installed a bug zapper in my house, in an attempt to control the mosquito population. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics."
 ---
 
-So I installed a bug zapper in my house, in an attempt to control the mosquito population[^1]. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics.
+So I installed a bug zapper in my house, in an attempt to control the mosquito population[^1]. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: **A dashboard**! How many mosquitoes do I catch? I need statistics.
 
 {% include img.html src="/images/zap/zap-tower.jpg" alt="Zap tower" width="20%" %}
 
@@ -83,9 +83,14 @@ So I drew something by hand instead. I also added a second resistor between the 
 
 {% include img.html src="/images/zap/zap-schematics.png" alt="Hand-drawn schematics (drinkcat: 1; Claude: 0)" width="100%" %}
 
+<div class="img-row">
+{% include img.html src="/images/zap/zap-tower-clamp-scope.jpg" alt="Signal after clamping, neatly between -0.3 and 3.6V." width="100%" %}
+{% include img.html src="/images/zap/zap-breadboard.jpg" alt="Breadboard prototypes: left is v1 on ESP32-C6 devkit, right is a Seeed Xiao ESP32-C6" width="100%" %}
+</div>
+
 ### ESP32 integration
 
-I picked an ESP32-C6 devkit board, and used this as an opportunity to see what all the embedded Rust rage is about. I first made a [`esp-idf-svc`](https://github.com/esp-rs/esp-idf-svc) based firmware, that builds on top of Espressif C/FreeRTOS `esp-idf` libraries, then rewrote in the Espressif-supported, native-Rust [`esp-hal`](https://github.com/esp-rs/esp-hal) framework. Claude is much better at vibe-coding than vibe-EEing, and makes it really fast to put things together.
+I picked an ESP32-C6 devkit board, and used this as an opportunity to see what all the embedded Rust rage is about. I first made a [`esp-idf-svc`](https://github.com/esp-rs/esp-idf-svc) based firmware, that builds on top of Espressif C/FreeRTOS `esp-idf` libraries, then rewrote in the Espressif-supported, native-Rust [`esp-hal`](https://github.com/esp-rs/esp-hal) framework. Claude is much better at coding than vibe-EEing, and makes it really fast to put things together.
 
 The [code](https://github.com/drinkcat/zappy-esp/blob/main/src/bin/main.rs)[^4] is reasonably simple, and boils down to:
  - Connect to Wifi (hardcoded SSID in firmware for now)
@@ -93,7 +98,7 @@ The [code](https://github.com/drinkcat/zappy-esp/blob/main/src/bin/main.rs)[^4] 
    - Blink LED as immediate feedback.
    - Send a message to a cloud service via Wifi/HTTP.
 
-I must say I found the `embassy` abstraction of interrupt handler into an async event really cool, then we can just publish to a pubsub queue that the blink and message handler tasks can pull from.
+I must say I found the `embassy` abstraction of interrupt handler into an async event really cool, then we can just publish to a pubsub queue that the blink and message handler tasks pull from.
 ```rust
     loop {
         zap_pin.wait_for_rising_edge().await;
@@ -116,7 +121,11 @@ The only small gotcha was to make sure the ESP32 sends an empty message every fe
 
 Making a dashboard out of the zap events was really simple with the UI.
 
-{% include img.html src="/images/zap/zap-dashboard.png" alt="Zap dashboard" width="100%" %}
+{% include img.html src="/images/zap/zap-dashboard.png" alt="Zap dashboard" %}
+
+One really interesting this to notice is that the bug count dropped a lot on April 5, it was a very rainy day, I suspect nests got flushed away. Not for long though.
+
+That's it! Ideas welcome, leave a comment below or just contact me.
 
 [^1]: For some reason Google AI overview says those are useless and harmful to good insects. Possibly in US-context, and when placed outdoors? Anyhow, I live in dengue country, so I would rather not get bitten by mosquitoes, and I'm sorry for the other insects this catches.
 
