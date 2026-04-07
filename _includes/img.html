@@ -1,0 +1,13 @@
+{% assign src_ext = include.src | split: "." | last %}
+{% assign src_base = include.src | split: "." | reverse | shift | reverse | join: "." %}
+{% assign src_thumb = src_base | append: "-thumb." | append: src_ext %}
+<figure style="text-align: center">
+  <a onclick="document.getElementById('img-{{ include.src | slugify }}').classList.add('open')" style="cursor: zoom-in">
+    <img src="{{ src_thumb }}" alt="{{ include.alt }}" style="max-width: {{ include.width | default: '100%' }}">
+  </a>
+  {% if include.alt %}<figcaption><em>{{ include.alt }}</em></figcaption>{% endif %}
+</figure>
+
+<div id="img-{{ include.src | slugify }}" class="lightbox" onclick="this.classList.remove('open')">
+  <img src="{{ include.src }}" alt="{{ include.alt }}">
+</div>

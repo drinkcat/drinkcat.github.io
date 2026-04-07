@@ -6,4 +6,4 @@ PORT=4000
 
 cd $basedir
 # JEKYLL_ENV=production could be added
-bundle exec jekyll serve --livereload --port $PORT
+bundle exec jekyll serve --future --livereload --port $PORT
