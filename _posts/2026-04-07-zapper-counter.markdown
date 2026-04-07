@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From zap! to dashboard"
-date: 2026-04-15 14:09:32+01:00
+date: 2026-04-07 14:35:33+08:00
 categories: embedded
 description: "I installed a bug zapper in my house. I know it zaps, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics."
 excerpt: "So I installed a bug zapper in my house, in an attempt to control the mosquito population. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics."
