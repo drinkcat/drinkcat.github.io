@@ -23,7 +23,7 @@ In total, I have close to 1000 shots, acquired over 45 minutes. Here are some of
 
 {% include img.html src="/images/tropical-storm-composite-shot/P1180419.JPG" alt="A bit overexposed, but notice how the sky becomes blue, at night." %}
 
-The 13 nicest images of the series can be seen in this [Picasa album](https://picasaweb.google.com/107363214762755220776/SingaporeStormApril132013?authuser=0&authkey=Gv1sRgCKfM9Yfai4OKOw&feat=directlink).
+The 13 nicest images of the series can be seen in this [Google Photos album](https://photos.app.goo.gl/gJdVhHt5T7B2c7EE6).
 
 I am going to do 2 things with those images: a composite image of all the lightnings, and a video, that I will show in the [next post](/blog/2013/04/24/thunderstorm-video/).
 

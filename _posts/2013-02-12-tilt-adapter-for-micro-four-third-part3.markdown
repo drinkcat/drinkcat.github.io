@@ -63,6 +63,6 @@ Unless otherwise mentioned, pictures are taken with the 28mm f/2.8 lens, tilted 
 
 {% include img.html src="/images/tilt-adapter-for-micro-four-third/P1150855.JPG" alt="28mm lens, tilt ~16°, f/2.8, 1/25s, ISO 1600." %}
 
-You can find a set of sample pictures [here](https://picasaweb.google.com/107363214762755220776/TiltShift201302?authuser=0&authkey=Gv1sRgCKOKvKK5sOXZyQE&feat=directlink) (*dead link*).
+You can find a set of sample pictures [here](https://photos.app.goo.gl/GHcYwnHqvJPdyPts5).
 
 <!-- TODO: original post had a Flash/Picasa slideshow of sample pictures here; slideshow removed (dead technology). -->

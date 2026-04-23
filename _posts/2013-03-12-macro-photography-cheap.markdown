@@ -64,6 +64,6 @@ Finally, the corrected image looks very decent, especially considering the cost 
 
 {% include img.html src="/images/macro-photography-cheap/P1160763_corr.JPG" alt="Corrected image." %}
 
-You can find a set of sample pictures [here](https://photos.app.goo.gl/GHcYwnHqvJPdyPts5). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.
+You can find a set of sample pictures [here](https://photos.app.goo.gl/KK9gXowyRaAoyvFx5). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.
 
 <!-- TODO: original post had a Flash/Picasa slideshow of sample pictures here; slideshow removed (dead technology). -->
