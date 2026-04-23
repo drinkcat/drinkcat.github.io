@@ -5,8 +5,7 @@ date: 2013-03-18 18:02:00+08:00
 categories: photo blogspot
 ---
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-*In this series I show how you can use a cheap close-up filter to take macro pictures. The [previous post](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html) is a general introduction, and this post will show you how to fix chromatic aberration introduced by the filter.*
+In this series I show how you can use a cheap close-up filter to take macro pictures. The [previous post](/blog/2013/03/12/macro-photography-cheap/) is a general introduction, and this post will show you how to fix chromatic aberration introduced by the filter.
 
 As shown in the previous post, the cheap 8x close-up filter introduces a lot of chromatic aberration (CA), especially at high magnification (45-150mm lens at maximum focal length). This is obvious when taking a picture of a black and white checkered pattern.
 
@@ -99,6 +98,8 @@ $ ls *_corr.JPG | ruby -ne 'm = $_.match(/(.*)_corr(.*)/); system "exiftool -all
 
 ### Sample pictures
 
+<!-- TODO: original post had a Flash/Picasa slideshow of ~12 sample pictures here; slideshow removed (dead technology). Consider finding an alternative way to show those images. -->
+
 {% include img.html src="/images/macro-photography-correcting-chromatic-aberration/P1160799_corr_scale.JPG" alt="Baby gecko (that I accidentally frightened, which made it stay put long enough for me to take a few pictures; it then ran away)" %}
 
-You can find a set of sample pictures [here](https://plus.google.com/photos/107363214762755220776/albums/5853271765687058609?authkey=CMX487TjuYy7TA). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.
+You can find a set of sample pictures [here](https://photos.app.goo.gl/KK9gXowyRaAoyvFx5). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.

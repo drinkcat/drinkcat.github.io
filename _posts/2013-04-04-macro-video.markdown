@@ -5,8 +5,7 @@ date: 2013-04-04 19:00:00+08:00
 categories: photo blogspot
 ---
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-This post is about taking macro videos, that is, videos of small objects, at relatively high magnification. In other posts, you can find a general introduction on taking [macro pictures using a close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html), and how to [correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/).
+This post is about taking macro videos, that is, videos of small objects, at relatively high magnification. In other posts, you can find a general introduction on taking [macro pictures using a close-up filter](/blog/2013/03/12/macro-photography-cheap/), and how to [correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/).
 
 This post will show you how to take videos of small objects. I used my Reuge music box as an example, since it is small, and it moves (playing some nice music in the process, of course)... The final result is shown here:
 
@@ -20,10 +19,9 @@ An alternative would be to use the [Ptool hacked firmware](http://www.gh1-hack.i
 
 This post will show you how to circumvent these limitations. To get a nice macro video, we need 3 things:
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
 - Force the lens aperture to its largest value (f/22), to get a decent depth of field. This also mean we need a lot of light on the scene. For this purpose, I put a tabletop lamp right on top of my music box (a few centimeters away).
 - Fix the white balance. The camera only allows auto white balance in video mode. In this case it does a particularly bad job at it, because the scene is mostly yellow, and turns everything into a grayish thing.
-- [Correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/) introduced by the [macro filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html).
+- [Correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/) introduced by the [macro filter](/blog/2013/03/12/macro-photography-cheap/).
 
 ### Forcing lens aperture
 
@@ -62,8 +60,7 @@ Use a low-residue tape (like masking tape), so that you don't end up with dirty 
 
 You now have a "legacy" lens, 150mm, f/22, with the focus set to its closest setting. Put it back on the camera. If the camera complains, you need to set the "Shoot without lens" option. The camera will of course not allow you to change aperture, nor will it tell you what is the aperture (or the focal length, or which lens is mounted: you get the idea). As with all native Micro 4/3 lens, the focus is "by-wire", so you will not be able to change that either. And you won't get image stabilization, since the lens gets no power.
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-Put the [close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html) on the lens, mount the camera on a tripod, and you are now ready to shoot your macro video!
+Put the [close-up filter](/blog/2013/03/12/macro-photography-cheap/) on the lens, mount the camera on a tripod, and you are now ready to shoot your macro video!
 
 The following video is what I obtain, straight out of the camera. The white balance is obviously wrong, there is some chromatic aberration on the edges of the image, and the soundtrack needs some cleanup, but that's a start:
 

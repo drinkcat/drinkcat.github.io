@@ -13,8 +13,7 @@ This is especially true of the Olympus OM 50mm, f/1.8, that used to be a kit len
 
 {% include img.html src="/images/olympus-om-50mm-f18-on-mft/P1200737a.JPG" alt="Olympus OM 50mm f/1.8 mounted on Panasonic DMC-GX1" %}
 
-<!-- TODO: update tilt-shift links below once those posts are migrated -->
-I originally bought this lens to use it as part of a [custom tilt-shift adapter](http://drinkcat.blogspot.sg/2013/02/tilt-adapter-for-micro-four-third-part1.html), but realised that the [50mm focal length is usually too narrow](http://drinkcat.blogspot.sg/2013/02/tilt-adapter-for-micro-four-third-part2.html), and purchased a Promaster 28mm f/2.8 for that purpose (OM mount as well).
+I originally bought this lens to use it as part of a [custom tilt-shift adapter](/blog/2013/02/04/tilt-adapter-for-micro-four-third-part1/), but realised that the [50mm focal length is usually too narrow](/blog/2013/02/07/tilt-adapter-for-micro-four-third-part2/), and purchased a Promaster 28mm f/2.8 for that purpose (OM mount as well).
 
 This lens is really amazing (especially considered its price): It becomes a short telephoto lens on the MFT system (100mm full-frame equivalent), which gives you interesting constraints: you have to focus on details, or put some distance between you and your subject. The large aperture makes it particularly interesting in low-light conditions (museums, night markets, etc.). On the other hand, it does require ND filters in bright daylight, as you are hitting the maximum shutter speed of the camera (1/4000s for the GX1): a 3-stop ND filter, that is ND8 or 0.9 optical density, works perfectly for these situations. I actually never stop the aperture down: I would rather switch to another lens if I want more depth of field.
 

@@ -5,9 +5,8 @@ date: 2013-04-09 19:00:00+08:00
 categories: photo blogspot
 ---
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-*This post is about taking macro videos, that is, videos of small objects, at relatively high magnification. In other posts, you can find a general introduction on taking [macro pictures using a close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html), and how to [correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/).
-The [previous post](/blog/2013/04/04/macro-video/) shows how to force the lens aperture on the DMC-GX1, this post gives technical details to correct chromatic aberration, white balance, and improve the soundtrack.*
+This post is about taking macro videos, that is, videos of small objects, at relatively high magnification. In other posts, you can find a general introduction on taking [macro pictures using a close-up filter](/blog/2013/03/12/macro-photography-cheap/), and how to [correct chromatic aberration](/blog/2013/03/18/macro-photography-correcting-chromatic-aberration/).
+The [previous post](/blog/2013/04/04/macro-video/) shows how to force the lens aperture on the DMC-GX1, this post gives technical details to correct chromatic aberration, white balance, and improve the soundtrack.
 
 As mentioned in the [previous post](/blog/2013/04/04/macro-video/), the Panasonic DMC-GX1 is severely limited when it comes to video mode: it does not allow manual setting of the aperture and white balance.
 
@@ -47,8 +46,7 @@ This outputs 1 JPEG file for each frame of the video. The `qscale` parameters sh
 
 ### Correct chromatic aberration
 
-<!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-Now, let's fix the chromatic aberration (red and blue fringes in the corners of the images), that is caused by our [cheap close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html):
+Now, let's fix the chromatic aberration (red and blue fringes in the corners of the images), that is caused by our [cheap close-up filter](/blog/2013/03/12/macro-photography-cheap/):
 
 ```
 cd mjpeg
