@@ -9,9 +9,7 @@ This post is an introduction to the topic. See the next article for some advice 
 
 Tilt-shift pictures are getting quite popular nowadays, especially the tilt effect that gives a miniature effect to pictures. This is especially beautiful in videos, an example is shown below.
 
-<div style="text-align: center;">
-<iframe allowfullscreen frameborder="0" height="300" src="http://player.vimeo.com/video/6243891" width="400"></iframe>
-</div>
+*(A tilt-shift miniature video example was embedded here — [vimeo.com/6243891](https://vimeo.com/6243891), but it appears to be private or deleted.)*
 
 Many cameras, including mine (Panasonic DMC-GX1), include a "fake miniature" effect, that digitally blurs the top and bottom of the image to simulate a tilt lens. But I don't like so much the idea of post-processing, so I decided to use a real tilt-shift adapter.
 
