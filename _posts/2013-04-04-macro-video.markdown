@@ -63,7 +63,7 @@ Use a low-residue tape (like masking tape), so that you don't end up with dirty 
 You now have a "legacy" lens, 150mm, f/22, with the focus set to its closest setting. Put it back on the camera. If the camera complains, you need to set the "Shoot without lens" option. The camera will of course not allow you to change aperture, nor will it tell you what is the aperture (or the focal length, or which lens is mounted: you get the idea). As with all native Micro 4/3 lens, the focus is "by-wire", so you will not be able to change that either. And you won't get image stabilization, since the lens gets no power.
 
 <!-- TODO: update macro-photography-cheap link once 2013-03-macro-photography-cheap is migrated -->
-Put the [close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html) on the lens,, mount the camera on a tripod, and you are now ready to shoot your macro video!
+Put the [close-up filter](http://drinkcat.blogspot.com/2013/03/macro-photography-cheap.html) on the lens, mount the camera on a tripod, and you are now ready to shoot your macro video!
 
 The following video is what I obtain, straight out of the camera. The white balance is obviously wrong, there is some chromatic aberration on the edges of the image, and the soundtrack needs some cleanup, but that's a start:
 
