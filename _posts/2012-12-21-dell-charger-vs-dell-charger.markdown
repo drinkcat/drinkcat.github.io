@@ -44,3 +44,7 @@ I haven't made up my mind if I want to file a claim on Paypal/eBay. According to
 In the end, I found [another seller](http://www.ebay.com/itm/320811149917) (30$), who carries genuine chargers. I received the charger today, it works fine, and looks genuine.
 
 Morale of the story: you pay for what you get. And next time, I'll just get it [straight from Dell](http://accessories.ap.dell.com/sna/productdetail.aspx?c=sg&l=en&cs=sgdhs1&sku=492-10478), ~50 US$, next day shipping: reasonable, I'm not even sure why I bothered looking elsewhere...
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

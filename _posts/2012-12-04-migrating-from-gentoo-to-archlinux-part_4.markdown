@@ -85,3 +85,7 @@ Now, you can install missing packages by running either of these commands:
 The second one searches for packages that contain "package" in their description as well.
 
 All for now, [next post](/blog/2012/12/07/migrating-from-gentoo-to-archlinux-part_7/) will concentrate on configuring Archlinux, and rebooting on your new system.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

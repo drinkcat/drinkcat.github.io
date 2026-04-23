@@ -30,3 +30,7 @@ Well, I won't repeat what other reviews say online (there are plenty), but, basi
 In short, mildly recommended for the normal user, Chrome OS is great, but really needs a working connection to be used to its full potential. And this is not always the case while travelling.
 
 Strongly recommended for the more advanced user, as you can install a regular Linux in parallel: either as Dual-boot, or as a chroot inside Chrome OS, where you can switch between Chrome OS and your Linux with a simple key combination. I used the wonderful [crouton](https://github.com/dnschneid/crouton) to install Ubuntu, and ported it to support Archlinux ([chroagh](https://github.com/drinkcat/chroagh)). More on that for a later post.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

@@ -30,3 +30,7 @@ The [next post](/blog/2013/07/25/bokeh-fixing-opening-and-cleaning/) will show y
 In the mean time, I uploaded on Flickr a [collection of photos taken with that lens](https://www.flickr.com/photos/96267469@N06/sets/72157634684493531/):
 
 {% include img.html src="/images/olympus-om-50mm-f18-on-mft/montage.jpg" alt="Sample photos taken with the Olympus OM 50mm f/1.8" %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

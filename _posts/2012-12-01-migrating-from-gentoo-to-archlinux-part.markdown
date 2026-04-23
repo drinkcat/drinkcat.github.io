@@ -54,3 +54,7 @@ That means I need to run `revdep-rebuild`, and finally, after a day or two, I ge
 As long as you have plenty of free time to fix things, I guess that was fine... But I started to find that boring.
 
 Time to make a move: in the [next post](/blog/2012/12/04/migrating-from-gentoo-to-archlinux-part_4/) I explain how I smoothly upgraded my system to Archlinux.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

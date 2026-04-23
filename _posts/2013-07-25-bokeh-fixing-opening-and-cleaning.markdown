@@ -48,3 +48,7 @@ After getting convinced that most of it was removed (or at least evened out...),
 {% include img.html src="/images/bokeh-fixing-opening-and-cleaning/before-after.jpg" alt="Left: before, Right: after. There is still a slight smudge on the right, but it is noticeably better." %}
 
 And my 13.5 USD 50mm f/1.8 recovers its original beautiful bokeh!
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

@@ -102,3 +102,7 @@ Finally, after making a backup of `/gentoo/etc`, just in case, you can happily:
 ```
 rm -rf /gentoo
 ```
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

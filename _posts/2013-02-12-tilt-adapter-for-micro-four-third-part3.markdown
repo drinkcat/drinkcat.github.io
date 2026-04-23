@@ -66,3 +66,7 @@ Unless otherwise mentioned, pictures are taken with the 28mm f/2.8 lens, tilted 
 You can find a set of sample pictures [here](https://photos.app.goo.gl/GHcYwnHqvJPdyPts5).
 
 <!-- TODO: original post had a Flash/Picasa slideshow of sample pictures here; slideshow removed (dead technology). -->
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

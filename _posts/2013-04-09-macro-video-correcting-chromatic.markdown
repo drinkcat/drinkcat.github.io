@@ -123,3 +123,7 @@ Finally, I use kdenlive to merge the audio and video, cut the video (remove the 
 <div style="text-align: center;">
 <iframe allowfullscreen="" frameborder="0" height="315" src="http://www.youtube.com/embed/5IlDgwzRR94" width="560"></iframe>
 </div>
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

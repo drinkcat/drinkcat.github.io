@@ -47,3 +47,7 @@ I first bought the 50mm lens. This is an very nice lens, but with a narrow field
 {% include img.html src="/images/tilt-adapter-for-micro-four-third/P1150803.JPG" alt="28mm lens, tilt ~16°, f/2.8, 1/4000s, ISO 160. Alterations in GIMP: contrast stretching and saturation." %}
 
 {% include img.html src="/images/tilt-adapter-for-micro-four-third/P1150810.JPG" alt="50mm lens, tilt ~16°, f/1.8, 1/3200s, ISO 160. Alterations in GIMP: contrast stretching and saturation." %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

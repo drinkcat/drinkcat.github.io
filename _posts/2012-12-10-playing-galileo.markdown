@@ -48,3 +48,7 @@ You can also tell that the field of view of my images is about 0.8°. I cropped 
 Finally, I probably live in one of the worst places to take pictures of stars: in the middle of a bright city, with high humidity in the air. So expect better results if you live in a place with a clearer sky!
 
 It would be nice to see what results we can get using RAW images, to get rid of JPEG compression artefacts, and without using the in-camera digital zoom. But that will be for another post!
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

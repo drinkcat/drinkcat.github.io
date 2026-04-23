@@ -35,3 +35,7 @@ Both chargers seem to be able to do their job properly, but I'm pretty sure that
 
 <!-- TODO: update dell-charger link once 2012-12-dell-charger-vs-dell-charger is migrated -->
 Well, [same morale of the story](http://drinkcat.blogspot.com/2012/12/dell-charger-vs-dell-charger.html): you get what you pay for. Don't be fooled by the fact the charger you're buying says "Nikon", "Dell", or any other brand.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

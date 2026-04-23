@@ -36,3 +36,7 @@ Then, the script [`banner.rb`](https://github.com/drinkcat/randombanner/blob/mas
 It will also read [`pagecode.html.template`](https://github.com/drinkcat/randombanner/blob/master/pagecode.html.template), and generate [`pagecode.html`](https://github.com/drinkcat/randombanner/blob/master/pagecode.html) for the list of images.
 
 That's it! Looking at the code should be somehow self-documenting, if you want to modify it. I release the code in public domain, feel free to use it.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

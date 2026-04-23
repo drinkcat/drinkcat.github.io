@@ -103,3 +103,7 @@ $ ls *_corr.JPG | ruby -ne 'm = $_.match(/(.*)_corr(.*)/); system "exiftool -all
 {% include img.html src="/images/macro-photography-correcting-chromatic-aberration/P1160799_corr_scale.JPG" alt="Baby gecko (that I accidentally frightened, which made it stay put long enough for me to take a few pictures; it then ran away)" %}
 
 You can find a set of sample pictures [here](https://photos.app.goo.gl/KK9gXowyRaAoyvFx5). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

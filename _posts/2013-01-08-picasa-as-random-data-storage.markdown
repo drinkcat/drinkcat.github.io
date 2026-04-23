@@ -82,3 +82,7 @@ And you can check that `myfile` and `myfile2` are identical.
 We could of course automate the process, but that's not the point here (feel free to do it if you want to take the risk of using Picasa as a sharing facility).
 
 A nicer, and more "subversive" way is [steganography](http://en.wikipedia.org/wiki/Steganography). Steganography embeds data in an otherwise normal looking image. But that will be for another post.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

@@ -121,3 +121,7 @@ In exchange for 2 seconds of GPU time, you get a nice Mandelbrot fractal in `out
 {% include img.html src="/images/opencl-on-samsung-chromebook-arm-under/output.png" alt="Mandelbrot fractal rendered on Mali T604 GPU" %}
 
 That's it! The [next post](/blog/2013/12/01/opencl-on-samsung-chromebook-arm/) will focus on some benchmarks, and comparison with a x86 laptop GPU and OpenMP implementations.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

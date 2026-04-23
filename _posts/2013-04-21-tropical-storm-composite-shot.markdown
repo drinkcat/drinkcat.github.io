@@ -54,3 +54,7 @@ This shows you the progression of the composition, starting from the original im
 {% include img.html src="/images/tropical-storm-composite-shot/montage-compose-fromdiff.jpg" alt="Montage of the progression of the composite image. One image is added at each step (2 images from 3 to 5). For step 1, the black level is not increased significantly, so as to get the blue sky on the right." %}
 
 The image at step 12 is the one shown at the beginning of this post, after slight color adjustments.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

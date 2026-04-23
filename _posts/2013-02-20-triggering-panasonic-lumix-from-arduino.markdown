@@ -114,3 +114,7 @@ void loop()  {
 ```
 
 This code "holds down" the shutter for 100 milliseconds, enough to allow the camera to autofocus. It also blinks the Arduino LED on pin 13, to give you a visual feedback that the code is running, in case the camera does not trigger (wrong polarity, etc.).
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

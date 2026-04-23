@@ -73,3 +73,7 @@ mencoder mf://sm1080/output/*.JPG -mf fps=25:type=jpg -ovc x264 -x264encopts pre
 ```
 
 The video can be seen in 720p on [Vimeo](http://vimeo.com/64485466), and in 1080p on [Youtube](http://www.youtube.com/watch?v=pQOGZcWx1EU) (unfortunately, Youtube does not let me choose a good thumbnail image, so I switched to Vimeo for this reason).
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

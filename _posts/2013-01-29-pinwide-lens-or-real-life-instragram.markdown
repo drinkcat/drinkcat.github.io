@@ -34,3 +34,7 @@ Finally, another interesting effect of the small aperture is that everything is 
 {% include img.html src="/images/pinwide-lens-or-real-life-instragram/P1150728_modified_dust_arrow.JPG" alt="Dust on the sensor" %}
 
 In short, an interesting "lens" to add to my collection. Probably a bit expensive for a pinhole (39.99 USD), but it provides opportunities for some creative shots, and I still need to explore its full potential.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

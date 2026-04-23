@@ -79,3 +79,7 @@ The next graph shows all the results aggregated.
 Assuming OpenCL and OpenMP implementations give similar results (which is actually doubtful in some cases, see the previous section), running OpenCL code on the Samsung Chromebook ARM can help a lot in terms of performance: On the Dell laptop, using OpenCL improves performance by a factor 2.25 on average. On the Chromebook ARM, the ratio is 4.1! And this is without any attempt at optimizing the code for the Mali architecture, which is quite different from a normal GPU (in particular, it has no local memory, so data does not need to be copied back and forth).
 
 I'd also like to try some real applications, my next project is to get [darktable](http://www.darktable.org/) running (a RAW photo developer). Do let me know if you have some real applications using OpenCL! I'll follow up with another post if I get them to work.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

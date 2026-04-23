@@ -16,3 +16,7 @@ Anyway... it gives some "interesting" light when the sun is low.
 {% include img.html src="/images/good-morning-haze/P1200442.JPG" alt="" %}
 
 {% include img.html src="/images/good-morning-haze/P1200449.JPG" alt="Red sun, still high above the horizon (~1h before sunset)." %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

@@ -69,3 +69,7 @@ The following video is what I obtain, straight out of the camera. The white bala
 </div>
 
 The [next post](/blog/2013/04/09/macro-video-correcting-chromatic/) will go into the technical details of fixing the white balance, chromatic aberration, and background noise in the soundtrack.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

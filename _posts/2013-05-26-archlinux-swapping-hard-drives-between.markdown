@@ -22,3 +22,7 @@ Anyway, that got me thinking that I should carry such a big laptop on holidays, 
 Just one picture of my trip to Ho Chi Minh City:
 
 {% include img.html src="/images/archlinux-swapping-hard-drives-between/P1190243.JPG" alt="Somewhere in Saigon: Doll waiting to cross the road. Or celebrating Reunification day, not sure..." %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

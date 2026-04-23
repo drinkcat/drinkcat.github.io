@@ -200,3 +200,7 @@ That's it! Then you can put everything in a shell script, see [the complete code
 ### It's so cool, I want more!
 
 I get it. I, too, have become a fan of parsing XML/HTML from scripts. See [this post](/blog/2013/06/09/parse-xml-from-shell-scripts/) for another example.
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

@@ -24,3 +24,7 @@ Commercial adapters can be fairly expensive, around 2000$ for [that one](http://
 In these posts, I will just focus on the Micro Four Third system, and my version of the plungercam. The next article will focus on [lens selection](/blog/2013/02/07/tilt-adapter-for-micro-four-third-part2/), and the following one on a [simple DIY adapter](/blog/2013/02/12/tilt-adapter-for-micro-four-third-part3/).
 
 {% include img.html src="/images/tilt-adapter-for-micro-four-third/DSCN6288.JPG" alt="Self-made tilt adapter, mounted on my camera. The plastic piece is flexible, allowing for relatively free movement of the lens." %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

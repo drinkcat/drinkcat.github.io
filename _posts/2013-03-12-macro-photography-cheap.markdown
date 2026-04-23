@@ -67,3 +67,7 @@ Finally, the corrected image looks very decent, especially considering the cost 
 You can find a set of sample pictures [here](https://photos.app.goo.gl/KK9gXowyRaAoyvFx5). The pictures are taken at f/22, 150mm, ISO 160, and chromatic aberration corrected, unless otherwise noted.
 
 <!-- TODO: original post had a Flash/Picasa slideshow of sample pictures here; slideshow removed (dead technology). -->
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

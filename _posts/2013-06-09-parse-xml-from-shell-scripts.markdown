@@ -105,3 +105,7 @@ END
 ```
 
 That's as good as it gets, and you could easily do much more complicated things with XSLT. But, that's a bit overkill for our purpose (and `xsltproc` is not installed in Chrome OS).
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*

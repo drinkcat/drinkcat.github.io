@@ -94,3 +94,7 @@ Finally, when everything is working, cut a piece of shrink tube, put it around t
 You're done!
 
 {% include img.html src="/images/simple-remote-trigger-for-panasonic/P1120602x.JPG" alt="The completed stripboard" %}
+
+---
+
+*Imported from "[Random ideas of a drinking cat](https://drinkcat.blogspot.com/)" blog.*
