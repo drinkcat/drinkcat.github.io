@@ -5,8 +5,7 @@ date: 2013-11-23 18:27:00+08:00
 categories: linux blogspot
 ---
 
-<!-- TODO: update chromebook link below once 2013-06-chromebook is migrated -->
-In this post we're going to look into OpenCL development on the [Samsung Chromebook ARM](http://drinkcat.blogspot.com/2013/06/chromebook.html), using crouton, and turn your Chromebook into a tiny supercomputer for CFD or bioinformatics.
+In this post we're going to look into OpenCL development on the [Samsung Chromebook ARM](/blog/2013/06/02/chromebook/), using crouton, and turn your Chromebook into a tiny supercomputer for CFD or bioinformatics.
 
 ARM recently posted some [instructions about OpenCL development on the Chromebook ARM](http://malideveloper.arm.com/develop-for-mali/features/graphics-and-compute-development-on-samsung-chromebook/), but these require creating a separate Ubuntu installation that you boot off a USB drive, and are quite lenghty. The instructions I provide here are very simple: They make use of [crouton](https://github.com/dnschneid/crouton), that allows you to run Chrome OS and Ubuntu in parallel, so that you can develop OpenCL applications without rebooting.
 

@@ -78,5 +78,4 @@ sshfs chronos@127.0.0.1:Downloads/ssh ssh.qemu -p 9922
 
 If you later restart QEMU, you will need to login in Chromium OS before the steps above work again.
 
-<!-- TODO: update link below once 2013-06-chromebook is migrated -->
-That's it! I find this particularly useful when I develop for [crouton](https://github.com/dnschneid/crouton)/[chroagh](https://github.com/drinkcat/chroagh), as I only have a [Samsung ARM Chromebook](http://drinkcat.blogspot.sg/2013/06/chromebook.html). With this setup, I can test my code on `x86` and `x86_64` architectures.
+That's it! I find this particularly useful when I develop for [crouton](https://github.com/dnschneid/crouton)/[chroagh](https://github.com/drinkcat/chroagh), as I only have a [Samsung ARM Chromebook](/blog/2013/06/02/chromebook/). With this setup, I can test my code on `x86` and `x86_64` architectures.
