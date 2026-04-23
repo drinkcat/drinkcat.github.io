@@ -5,8 +5,7 @@ date: 2013-01-18 20:34:00+08:00
 categories: others blogspot
 ---
 
-<!-- TODO: update dell-charger link once 2012-12-dell-charger-vs-dell-charger is migrated -->
-On the topic of [charger vs charger](http://drinkcat.blogspot.com/2012/12/dell-charger-vs-dell-charger.html), and how they are not all born equal, here is another one.
+On the topic of [charger vs charger](/blog/2012/12/21/dell-charger-vs-dell-charger/), and how they are not all born equal, here is another one.
 
 This one is a battery charger, for a Nikon Coolpix camera. The original one refused to charge, while in India. The Nikon centre over there opened it, and apparently fixed it. However, it still refused to charge the battery, so we bought another one (on [eBay](http://www.ebay.com/itm/150853166862), again...).
 
