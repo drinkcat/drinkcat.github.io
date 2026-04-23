@@ -5,8 +5,7 @@ date: 2013-12-01 19:00:00+08:00
 categories: linux blogspot
 ---
 
-<!-- TODO: update link below once 2013-11-opencl-on-samsung-chromebook-arm-under is migrated -->
-This is a second post on using OpenCL on the Chromebook ARM. The previous one gives instructions to [install OpenCL drivers and SDK on the Samsung Chromebook ARM](http://drinkcat.blogspot.sg/2013/11/opencl-on-samsung-chromebook-arm-under.html), without requiring to boot a separate Ubuntu, by using [crouton](https://github.com/dnschneid/crouton). This post compares OpenMP and OpenCL performance of the Chromebook ARM with a 4-year old laptop.
+This is a second post on using OpenCL on the Chromebook ARM. The previous one gives instructions to [install OpenCL drivers and SDK on the Samsung Chromebook ARM](/blog/2013/11/23/opencl-on-samsung-chromebook-arm-under/), without requiring to boot a separate Ubuntu, by using [crouton](https://github.com/dnschneid/crouton). This post compares OpenMP and OpenCL performance of the Chromebook ARM with a 4-year old laptop.
 
 ### Test setup
 
