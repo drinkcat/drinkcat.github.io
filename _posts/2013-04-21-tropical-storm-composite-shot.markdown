@@ -26,8 +26,7 @@ In total, I have close to 1000 shots, acquired over 45 minutes. Here are some of
 
 The 13 nicest images of the series can be seen in this [Picasa album](https://picasaweb.google.com/107363214762755220776/SingaporeStormApril132013?authuser=0&authkey=Gv1sRgCKfM9Yfai4OKOw&feat=directlink).
 
-<!-- TODO: update thunderstorm-video link once 2013-04-thunderstorm-video is migrated -->
-I am going to do 2 things with those images: a composite image of all the lightnings, and a video, that I will show in the next post.
+I am going to do 2 things with those images: a composite image of all the lightnings, and a video, that I will show in the [next post](/blog/2013/04/24/thunderstorm-video/).
 
 ### Composite
 
