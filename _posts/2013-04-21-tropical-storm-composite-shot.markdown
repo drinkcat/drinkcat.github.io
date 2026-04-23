@@ -11,8 +11,7 @@ One of the nice (and sometimes a little scary) things about living under the tro
 
 Last weekend a big one struck, so I mounted my camera (Panasonic DMC-GX1) on the window ledge, using my Gorillapod, and set the kit lens 14-42mm at its widest angle. Luckily, the rain was quite localized, so it wasn't raining much outside my window: no worries about getting my camera wet!
 
-<!-- TODO: update remote trigger link once 2012-12-simple-remote-trigger-for-panasonic is migrated -->
-I use the camera in burst mode, more precisely the "H" mode, that allows maximum speed while keeping the maximum resolution. I keep the trigger pressed using my [home-made remote trigger](http://drinkcat.blogspot.sg/2012/12/simple-remote-trigger-for-panasonic.html). All these shots are taken at f/5.0, with 2 seconds exposure, at ISO 160, slightly underexposed when there is no lightning, but sometimes overexposed for the brightest ones. Only mistake: I should have fixed the white balance, some of the shots clearly use different balances.
+I use the camera in burst mode, more precisely the "H" mode, that allows maximum speed while keeping the maximum resolution. I keep the trigger pressed using my [home-made remote trigger](/blog/2012/12/16/simple-remote-trigger-for-panasonic/). All these shots are taken at f/5.0, with 2 seconds exposure, at ISO 160, slightly underexposed when there is no lightning, but sometimes overexposed for the brightest ones. Only mistake: I should have fixed the white balance, some of the shots clearly use different balances.
 
 The interval between shots is short, around 400ms, meaning that we expose almost all the time, and therefore are able to capture most lightnings. Actually, some lightnings last for a fairly long time, and can be seen over 2 consecutive shots.
 

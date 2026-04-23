@@ -5,15 +5,13 @@ date: 2013-02-20 19:00:00+08:00
 categories: photo blogspot
 ---
 
-<!-- TODO: update remote trigger link once 2012-12-simple-remote-trigger-for-panasonic is migrated -->
-As mentioned in the post about [how to build a remote trigger](http://drinkcat.blogspot.com/2012/12/simple-remote-trigger-for-panasonic.html), we can also use an electronic device, such as an Arduino, to trigger the camera.
+As mentioned in the post about [how to build a remote trigger](/blog/2012/12/16/simple-remote-trigger-for-panasonic/), we can also use an electronic device, such as an Arduino, to trigger the camera.
 
 There are several way of accomplishing this, a simple MOSFET may do the trick, but I decided to use a optocoupler. The optocoupler electrically separates the Arduino and camera circuitry: This decreases risks of damaging the camera because of incorrect wirings on the Arduino side.
 
 ### Camera detection circuit
 
-<!-- TODO: update remote trigger link once 2012-12-simple-remote-trigger-for-panasonic is migrated -->
-If you remember from [this post](http://drinkcat.blogspot.com/2012/12/simple-remote-trigger-for-panasonic.html), the triggering mechanism for Panasonic cameras is a little unusual: The resistance across 2 pins defines the trigger status: around 41.1kOhm at rest, 5.1kOhm to pre-focus the camera, 2.2kOhm to trigger a shot.
+If you remember from [this post](/blog/2012/12/16/simple-remote-trigger-for-panasonic/), the triggering mechanism for Panasonic cameras is a little unusual: The resistance across 2 pins defines the trigger status: around 41.1kOhm at rest, 5.1kOhm to pre-focus the camera, 2.2kOhm to trigger a shot.
 
 Understanding a bit more of the detection circuit inside the camera is useful here. This can be done by measuring the voltage across the 2 pins in different combinations:
 
