@@ -8,7 +8,7 @@ excerpt: |
   Once I confirmed the detection circuit and software works, I wanted to shrink the design, and make it more "professional". I never designed a PCB in my life, so this was a good opportunity to start! I used [KiCad](https://www.kicad.org/) to draw the PCB, based on the schematics in the previous post, and included the detection antenna directly in the PCB.
 ---
 
-*This is part 2 of my zapping adventure, part 1 where I describe goals, experiments, and design is [here]({% post_url 2026-04-07-zapper-counter %}).*
+*This is part 2 of my zapping adventure, [part 1]({% post_url 2026-04-07-zapper-counter %}) is where I describe goals, experiments, and design.*
 
 Once I confirmed the detection circuit and software works, I wanted to shrink the design, and make it more "professional". I never designed a PCB in my life, so this was a good opportunity to start!
 
@@ -50,7 +50,7 @@ So, a total of 5.88 USD, and it took 10 days from me sending the order to receiv
 
 As you can see, 2 of the 5 boards are assembled. I did this to keep the weight super low to save on shipping (the components themselves, and assembly, are essentially free with coupons), and the components are intentionally big 1206-size so I could solder them by hand if necessary.
 
-And, finally, a video, similar to the one on the previous post:
+And, finally, a video, similar to the one on the previous post. I'm using a screwdriver (just after turning off the tower) to "emulate" a mosquito. The detection is shown by the LED blinking:
 
 <figure style="text-align: center">
   <iframe width="315" height="560" src="https://www.youtube.com/embed/76hJa5o9pKM" frameborder="0" allowfullscreen></iframe>
