@@ -48,7 +48,7 @@ So, a total of 5.88 USD, and it took 10 days from me sending the order to receiv
 {% include img.html src="/images/zap/pcb-esp-on-zapper.jpg" alt="ESP32-C6 Xiao plugged into the PCB" width="100%" %}
 </div>
 
-As you can see, 2 of the 5 boards are assembled. I did this to keep the weight super low to save on shipping (the components themselves, and assembly, are essentially free with coupons), and the components are intentionally big 1206-size so I could solder them by hand if necessary.
+As you can see, 2 of the 5 boards are assembled. I did this to keep the weight super low to save on shipping (the components themselves, and assembly, are essentially free with coupons), and the components are big 1206-size so I could solder them by hand if necessary.
 
 And, finally, a video, similar to the one on the previous post. I'm using a screwdriver (just after turning off the tower) to "emulate" a mosquito. The detection is shown by the LED blinking:
 
@@ -56,6 +56,8 @@ And, finally, a video, similar to the one on the previous post. I'm using a scre
   <iframe width="315" height="560" src="https://www.youtube.com/embed/76hJa5o9pKM" frameborder="0" allowfullscreen></iframe>
   <figcaption><em>We can still detect screwdrivers!</em></figcaption>
 </figure>
+
+Looks like it's just working, the loops are long enough, and the ESP32-C6 does not mind the EMI spike.
 
 #### Addendum
 
