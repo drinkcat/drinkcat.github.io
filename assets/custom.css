@@ -22,6 +22,11 @@ blockquote {
   font-size: 0.9em;
 }
 
+.small-code pre,
+.small-code code {
+  font-size: 0.85em;
+}
+
 .lightbox {
   display: none;
   position: fixed;
