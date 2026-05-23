@@ -2,10 +2,13 @@
 layout: post
 title: "From zap! to dashboard"
 date: 2026-04-07 14:35:33+08:00
+last_modified_at: 2026-05-23 10:35:33+08:00
 categories: embedded
 description: "I installed a bug zapper in my house. I know it zaps, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics."
 excerpt: "So I installed a bug zapper in my house, in an attempt to control the mosquito population. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: A dashboard! How many mosquitoes do I catch? I need statistics."
 ---
+
+*This is part 1 of my zapping adventure, in [part 2]({% post_url 2026-05-23-zapper-pcb %}) I make a PCB from this design.*
 
 So I installed a bug zapper in my house, in an attempt to control the mosquito population[^1]. It's basically a blue light surrounded by a metal grid, charged at high voltage, that discharges when something gets in between. I know it zaps, the noise and flash are obvious, but something is obviously missing: **A dashboard**! How many mosquitoes do I catch? I need statistics.
 
@@ -126,6 +129,8 @@ Making a dashboard out of the zap events was really simple with the UI.
 One really interesting this to notice is that the bug count dropped a lot on April 5, it was a very rainy day, I suspect nests got flushed away. Not for long though.
 
 That's it! Ideas welcome, leave a comment below or just contact me.
+
+*In [part 2]({% post_url 2026-05-23-zapper-pcb %}), I make a PCB from this design.*
 
 [^1]: For some reason Google AI overview says those are useless and harmful to good insects. Possibly in US-context, and when placed outdoors? Anyhow, I live in dengue country, so I would rather not get bitten by mosquitoes, and I'm sorry for the other insects this catches.
 
