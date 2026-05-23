@@ -59,6 +59,6 @@ And, finally, a video, similar to the one on the previous post:
 
 #### Addendum
 
-Just for fun, before making a PCB, I made a tiny stripboard version of the detection circuit:
+Just for fun, before making a PCB, I made a tiny stripboard version of the detection circuit. I won't show the back side with my terrible terrible soldering.
 
 {% include img.html src="/images/zap/stripboard.jpg" alt="Stripboard version of the detection circuit" width="100%" %}
