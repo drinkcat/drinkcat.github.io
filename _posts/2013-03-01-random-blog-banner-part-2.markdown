@@ -5,7 +5,7 @@ date: 2013-03-01 19:00:00+08:00
 categories: others blogspot
 ---
 
-Alright, the [previous part](/blog/2013/02/26/random-blog-banner-part-1/) shows you the script that allows to randomly display a banner image. Now, this would quickly end up being a bit messy to manage, if you want to add a new banner, then update the page with the [list of all panoramas](../../p/panoramas.html).
+Alright, the [previous part](/blog/2013/02/26/random-blog-banner-part-1/) shows you the script that allows to randomly display a banner image. Now, this would quickly end up being a bit messy to manage, if you want to add a new banner, then update the page with the list of all panoramas (*dead link*).
 
 I wrote a Ruby script to semi-automate the process. The source can be found on [github](https://github.com/drinkcat/randombanner).
 

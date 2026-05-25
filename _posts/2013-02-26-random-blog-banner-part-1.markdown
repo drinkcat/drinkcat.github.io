@@ -45,7 +45,7 @@ Then, I pick a random number in the list, unless the URL is something like `http
 
 Finally, the code generates a little piece of CSS style, that will set the banner image. Also, it modifies the HTML element with id `headerinformation`, so that it shows the image information. In my case, this element is at the bottom of the banner, aligned to the right, and tells you where the image was taken.
 
-All right. All for now, [next post](/blog/2013/03/01/random-blog-banner-part-2/) will show how to generate the script, as well as [the panoramas page](/panoramas/), automatically.
+All right. All for now, [next post](/blog/2013/03/01/random-blog-banner-part-2/) will show how to generate the script, as well as the panoramas page (*dead link*), automatically.
 
 ---
 
