@@ -5,6 +5,7 @@
 # If no arguments given, processes all images/*.{jpg,jpeg,png}
 
 THUMB_WIDTH=500
+THUMB_QUALITY=92
 
 images=("$@")
 if [ ${#images[@]} -eq 0 ]; then
@@ -21,6 +22,8 @@ for src in "${images[@]}"; do
         continue
     fi
 
-    magick "$src" -resize "${THUMB_WIDTH}x>" "$thumb"
+    # Slight pre-blur kills moire/aliasing from photographed LCD screens
+    # before the downscale, then Lanczos resize keeps edges/text sharp.
+    magick "$src" -blur 0x0.6 -filter Lanczos -resize "${THUMB_WIDTH}x>" -quality "$THUMB_QUALITY" "$thumb"
     echo "created: $thumb"
 done
