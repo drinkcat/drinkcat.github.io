@@ -57,5 +57,6 @@ exclude:
   - vendor/
   - docs/
   - blogger-mirror/
+  - CLAUDE.md
   - umami-backup-idea.md
   - bin/
