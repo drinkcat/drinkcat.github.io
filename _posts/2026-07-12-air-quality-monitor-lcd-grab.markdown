@@ -10,7 +10,7 @@ excerpt: >-
 
 A few years ago, I bought a simple air quality monitor. It's not "smart", and the data is simply shown on a LCD display. I went on a small adventure trying to convert it to a connected device, and extract the data so that it could be plotted on a graph (e.g. to tell the effectiveness of an air purifier).
 
-{% include img.html src="/images/aq-monitor/aq-monitor.jpg" alt="No clue how accurate, especially TVOC and CO2. But PM2.5/temperature/humidity data looks at least relatively correct." width="50%" %}
+{% include img.html src="/images/aq-monitor/aq-monitor.jpg" alt="No clue how accurate, especially TVOC and CO2. But PM2.5/temperature/humidity data looks relatively correct." width="50%" %}
 
 Of course, the easiest approach would be to buy a new sensor (that same manufacturer has one with Wifi enabled nowadays), or even roll your own with an ESP32 and parts. But in the spirit of my [vibe-EEing experiments]({% post_url 2026-04-07-zapper-counter %}), I thought I'd have a bit of Claude-assisted fun.
 
@@ -30,7 +30,7 @@ That idea, however, quickly died: the device is code-protected. In this mode, it
 
 ### LCD grabbing
 
-The next idea is quite a bit more advanced (and where it gets really fun!). Now that I know the MCU is a simple PIC32MM, with only 32kb of RAM, it's clear that it could not hold a full framebuffer (so the LCD has to be somewhat smart), and that signals have to be reasonably low speed.
+The next idea is quite a bit more advanced (and where it gets really fun!). Now that I know the MCU is a simple PIC32MM, with only 32 KB of RAM, it's clear that it could not hold a full framebuffer (so the LCD has to be somewhat smart), and that signals have to be reasonably low speed.
 
 {% include img.html src="/images/aq-monitor/fpc-adapter.jpg" alt="39-pin 2mm FPC to 2.54mm DIP adapter used for early experiments." width="60%" %}
 
@@ -58,7 +58,7 @@ The final Claude-authored notes about the display and pinout are here: [`display
 
 After a bit of back and forth with Claude, I ended up getting a Raspberry Pico 2 W board for further experiments. The RP2350 has an excellent programmable I/O (PIO) controller that makes it very easy to prototype: no fixed trigger pin assignment, and it's easy to adjust edge and timing.
 
-I told Claude to write a RP2350 firmware in Rust/embassy, and I played smart hands for the AI. I connected the pins as it advised, pressed the bootloader/reset buttons as asked. After a while, got a bit tired of being reduced to an assistant button presser for the AI, so I asked Claude to write functions to reset the board to bootloader mode, to make it able to reflash the firmware unattended.
+I told Claude to write a RP2350 firmware in Rust/embassy, and I played smart hands for the AI. I connected the pins as it advised, pressed the bootloader/reset buttons as instructed. After a while, got a bit tired of being reduced to an assistant button presser for the AI, so I asked Claude to write functions to reset the board to bootloader mode, to make it able to reflash the firmware unattended.
 
 And then basically watched it experiment (under some supervision). One of the challenges was to identify the purpose of pins 22/23/24, and the exact capture timing. The key here is `WR` (pin 24) that latches the data bus pins 0-15 on an edge. The `DC` (pin 23) is also quite important, as it is active at the beginning of each LCD command. A challenge with the `DC` (pin 23) is that it seemed to transition close to the `WR` edge. A small delay in the PIO capture code helped.
 
@@ -79,15 +79,15 @@ let prg = pio_asm!(
 );
 ```
 
-All of this was figured out with a mix of reading the spec, and trial and errors. I'm still not convinced that using the falling edge + short delay is correct, but that seems to be what works best. I'll also say that watching Claude struggle was sometimes frustrating, it often gets stuck in reasoning loops, but it seemed to be possible to make it escape those with (sometimes aggressive) nudging.
+All of this was figured out with a mix of reading the spec, and trial and error. I'm still not convinced that using the falling edge + short delay is correct, but that seems to be what works best. I'll also say that watching Claude struggle was sometimes frustrating, it often gets stuck in reasoning loops, but it seemed to be possible to make it escape those with (sometimes aggressive) nudging.
 
-The final RP2350 firmware is in this [folder](https://github.com/drinkcat/aq-lcd-grab/blob/main/firmware).[^3]
+The final RP2350 firmware is in [this folder](https://github.com/drinkcat/aq-lcd-grab/blob/main/firmware).[^3]
 
 ### Host-side display app
 
 As part of the experiments, I asked Claude to write an LCD command parser, first to debug the capture visually, and then to actually write code to grab the data. I gave complete freedom to Claude, and it picked `eframe` for this.
 
-The whole setup looks like this: FPC adapter tapping the LCD signals, Pico 2 for capture, decoded live on the laptop.
+The whole setup looks like this: an FPC adapter tapping the LCD signals, a Pico 2 for capture, and decoding live on the laptop.
 
 {% include img.html src="/images/aq-monitor/rp2350-setup.jpg" alt="Early versions had sync issues with black and white digits (temperature/humidity)." width="40%" %}
 
@@ -115,7 +115,7 @@ The code of the host is [here](https://github.com/drinkcat/aq-lcd-grab/tree/main
 
 That's it for now. In the next posts I'll look a bit at bandwidth issues, data compression, design of a hybrid ESP32+STM32 platform, Claude-assisted PCB design, and finally some home assistant integration.
 
-[^1]: I later ended up finding the exact model on Alibaba after disassembling the whole unit, which required unglueing the display. I only did that because I accidentally broke the flex and needed to order a replacement unit, but that's another story.
+[^1]: I later ended up finding the exact model on Alibaba after disassembling the whole unit, which required unglueing the display. I only did that because I accidentally broke the flex, and needed to order a replacement unit, but that's another story.
 
 [^2]: Like all the other markdown documents I link here, they are Claude-generated, and the content might be left in some slightly outdated shape: I made no attempt to clean anything up. They should still be human readable though.
 
