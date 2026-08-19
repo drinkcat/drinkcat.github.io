@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Grabbing LCD display: Overall design, chip selection and performance"
-date: 2026-07-22 11:00:00+08:00
+date: 2026-08-19 11:00:00+08:00
 categories: embedded
 excerpt: >-
   Now that we got a basic LCD grabber working, the next step is to move forward towards a design that taps on the LCD display lines while still keeping the display functional. We'll end up manufacturing a PCB for this purpose, but that'll be for the next article.
 ---
 
-This is the second part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}). This one is perhaps a little drier, but explains design constraints.
+This is the second part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}). This one is perhaps a little drier, and explains design constraints.
 
 Now that we got a basic LCD grabber working, the next step is to move forward towards a design that taps on the LCD display lines while still keeping the display functional. We'll end up manufacturing a PCB for this purpose, but that'll be for the next article.
 
@@ -15,7 +15,7 @@ Now that we got a basic LCD grabber working, the next step is to move forward to
 
 I have a few constraints for this project that will end up making the software implementation tricky.
 
-I want to keep the **original device fully functional**: The previous version disconnected the original LCD display, we want something that works as a **passthrough**, keeping the original device functional.
+I want to keep the **original device fully functional**: The previous version disconnected the original LCD display, we want something that works as a **passthrough**.
 
 <svg viewBox="0 45 570 110" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
   <defs>
@@ -42,9 +42,9 @@ I want to keep the **original device fully functional**: The previous version di
   <text x="520" y="105" text-anchor="middle" font-size="15" fill="#222">LCD</text>
 </svg>
 
-The whole capture board needs to be **small enough** to fit inside of the existing air quality sensor enclosure. This eliminates the somewhat trivial approach of adding a second 2mm FPC to 2.54mm to the Raspberry Pi Pico 2 W setup of the previous articles: The Pico 2 is too large, and the whole setup would be a total spaghetti of wires.
+The whole capture board needs to be **small enough** to fit inside the existing air quality sensor enclosure. This eliminates the somewhat trivial approach of adding a second 2mm FPC to 2.54mm to the Raspberry Pi Pico 2 W setup of the previous articles: The Pico 2 is too large, and the whole setup would be a total spaghetti of wires.
 
-This pushes me towards a **custom PCB** to shrink the design: Routing the 39 LCD pins between 2 flex connectors to enable passthrough, while tapping some of them to a capture MCU is reasonably easy.
+This pushes me towards a **custom PCB** to shrink the design: Routing the 39 LCD pins between 2 flex connectors to enable passthrough, while tapping some of them to a capture MCU, is reasonably easy.
 
 However, due to local regulations, importing WiFi-enabled devices is a headache. So I'll go for a split design: the custom PCB routes the LCD signals to an on-board MCU, with a couple of pins to transmit the data over UART to an off-the-shelf WiFi-enabled board. Just like the [zapper PCB]({% post_url 2026-05-23-zapper-pcb %}), I picked the [Seeed Studio XIAO ESP32-C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/) board: small footprint, and I can just add simple 2.54mm headers on my custom PCB to slot in the Xiao board.
 
@@ -89,7 +89,7 @@ I'll manufacture the PCB with [JLCPCB](https://jlcpcb.com/) again, as the value 
 
 However, those parts are a bit more expensive to manufacture as they require 2 "extended" parts in the JLCPCB catalogue: The MCU itself, and the recommended oscillator (extended parts come at a fixed loading fee per part).
 
-I looked at JLCPCB "basic"[^1] part catalogue further, and they had 2 STM32 parts available, an F0 and F1. The F0 was probably too tight (RAM and compute power), and wasn't drastically cheaper, so I picked the STM32F103C8T6.
+I looked at JLCPCB's "basic"[^1] part catalogue further, and they had 2 STM32 parts available, an F0 and F1. The F0 was probably too tight (RAM and compute power), and wasn't drastically cheaper, so I picked the STM32F103C8T6.
 
 | | RP2350 | RP2040 | STM32F103C8T6 |
 |---|---|---|---|
@@ -105,22 +105,24 @@ This introduces a bunch of new constraints though. The main issue here is not re
 
 This was probably the most frustrating part of this project, and where Claude struggled the most.
 
-The lack of flexible PIO is painful. But by routing `WR` to the correct pin(s), we can use timers to capture an edge of the `WR` pin to control DMA transfer and read the GPIO pin status. Again, Claude (and myself) did a lot of trial and error to select the right edge and filtering, especially given the somewhat different `DC` pin transition time.
+The lack of flexible PIO is painful. But by routing `WR` to the correct pin(s), we can use timers to capture an edge of the `WR` pin to control DMA transfer and read the GPIO pin status. Again, Claude (and myself) did a lot of trial and error to select the right edge and filtering, especially given the somewhat different `DC` pin transition time (see previous article).
 
-The next issue is that we are not able to put all the required 18 data pins (16-bit bus + `DC` + `CS`) on one single PA or PB port, as they are 16-bit each. Then, DMA transfers can only read from a single 16-bit register (or multiple if contiguous: not the case here). So we need to set up 2 DMA transfers to 2 different ring buffers to pull both PA and PB values.
+The next issue is that we are not able to put all the required 18 data pins (16-bit bus + `DC` + `CS`) on one single PA or PB port, as each port is only 16-bit wide. Then, DMA transfers can only read from a single 16-bit register (or multiple if contiguous: not the case here). So we need to set up 2 DMA transfers to 2 different ring buffers to pull both PA and PB values.
 
 Within those PA/PB ports, we also cannot guarantee the 16-bit data bus is even in a sensible order (some pins are reserved/fixed function, and PCB routing later will be easier if we reorder pins). Given that STM32 compute power is limited, I decided to pass unordered LCD data over UART. The ESP32 is powerful enough to reorder bits as required for rendering/processing.
 
 #### Performance
 
-After a bunch of back and forth, some basic capture worked fine, but quite a few of the LCD drawing operations ended up getting lost. With hindsight, I think this is where I should have stepped back, and think a bit more from first principles instead of just beating at things with Claude.
+After a bunch of back and forth, some basic capture worked fine, but quite a few of the LCD drawing operations ended up getting lost. With hindsight, I think this is where I should have stepped back, and thought a bit more from first principles instead of just beating at things with Claude.
 
-I first thought CPU performance was a concern. The Rust code generated by Claude was sometimes sub-optimal, with a bunch of unnecessary memory copies to fit into nice software abstractions like queues. This is totally acceptable for non-embedded/non-performance critical applications, but not here. I found ways to optimize the code though, sometimes bypassing `embassy-stm32`, but this feels like writing C in Rust. It would be a nice follow-up project to get `embassy-stm32` to work better in my case.
+I first thought CPU performance was a concern. The Rust code generated by Claude was sometimes sub-optimal, with a bunch of unnecessary memory copies to fit into nice software abstractions like queues. This is totally acceptable for non-embedded/non-performance critical applications, but not here. I found ways to optimize the code though, sometimes bypassing `embassy-stm32`, but this feels like writing C in Rust:
 ```rust
 let pa_ndtr = pac::DMA1.ch(4).ndtr().read().ndt() as usize;
 ...
 let pa = unsafe { core::ptr::read_volatile(pa_base.add(pa_i)) };
 ```
+
+It would be a nice follow-up project to get `embassy-stm32` to work better in my case.
 
 I also had doubts about whether the STM32 memory bus could withstand 2 relatively high speed DMA + a CPU core running at the same time, but that seems fine in the end.
 
@@ -137,7 +139,7 @@ For example, the display init sequence starts by writing 153600 words of zeros o
 
 #### Compression protocol
 
-Clearly, some compression is necessary to address the UART bottleneck, and I ended up designing a [protocol](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/wire_protocol.md) with Claude's help. The Raspberry Pico also required some basic compression to work, and I started with some basic run-length encoding:
+Clearly, some compression is necessary to address the UART bottleneck, and I ended up designing a [protocol](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/wire_protocol.md) with Claude's help. The Raspberry Pi Pico also required some basic compression to work, and I started with some basic run-length encoding:
 
 - **tag = 0x02 — run-length event (6-byte body)**
 
@@ -152,7 +154,7 @@ Clearly, some compression is necessary to address the UART bottleneck, and I end
   *(A run longer than 65535 edges is split into multiple
      tag=0x02 frames back-to-back.)*
 
-This works well for large uniform paints, but less so for individual digit updates that alternate between different colors. The RP could get away with less optimal encoding as it could easily fit 32kB DMA buffer and a 4kB UART buffer. The STM32 could only fit around half of that: 16kB DMA and 2kB UART (leaving only 2kB available for the rest). Those would easily overflow when multiple digits are updated in quick succession.
+This works well for large uniform paints, but less so for individual digit updates that alternate between different colors. The RP could get away with less optimal encoding as it could easily fit 32kB DMA buffer and a 4kB UART buffer. The STM32 could only fit around half of that: 16kB DMA and 2kB UART, leaving only 2kB available for everything else (stacks, RW globals...). Those would easily overflow when multiple digits are updated in quick succession.
 
 The key here was to recognize that digit updates are only composed of 2 different colors (e.g. black on green background, white on black background), so we can encode them efficiently:
 
@@ -162,19 +164,19 @@ The key here was to recognize that digit updates are only composed of 2 differen
 
   ```
   [0x03] [pa_lo pa_hi pb_lo pb_hi]  [pa_lo pa_hi pb_lo pb_hi]  [run_lens...] [0x00]
-       └──── val_a u32 LE ─────┘  └──── val_b u32 LE ─────┘  └── u8 each ─┘
+         └──── val_a u32 LE ─────┘  └──── val_b u32 LE ─────┘  └─ u8 each ─┘
   ```
 
   *(`0x00` terminates the run-length list --- 0 is never a valid run length, so it's unambiguous.)*
 
 <figure style="text-align: center">
   <iframe width="315" height="560" src="https://www.youtube.com/embed/CnENXiT2JiE" frameborder="0" allowfullscreen></iframe>
-  <figcaption>Notice the large uniform paints on device reset, and how individual digits are only comprised of 2 colors.</figcaption>
+  <figcaption>Notice the large uniform paints on device reset, and how individual digits are only composed of 2 colors.</figcaption>
 </figure>
 
 ---
 
-Despite the heavy constraints, and painful trial and errors, the STM32 implementation works well enough (full code [here](https://github.com/drinkcat/aq-lcd-grab/tree/main/firmware-stm32)), and I also implemented the digit decoding parts in ESP32, but we'll cover this briefly later.
+Despite the heavy constraints, and painful trial and error, the STM32 implementation works well enough (full code [here](https://github.com/drinkcat/aq-lcd-grab/tree/main/firmware-stm32)), and I also implemented the digit decoding parts in ESP32, but we'll cover this briefly in a later post.
 
 We'll move on to the Claude-assisted PCB design next.
 
