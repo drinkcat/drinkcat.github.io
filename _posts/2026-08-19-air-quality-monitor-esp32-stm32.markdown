@@ -3,6 +3,7 @@ layout: post
 title: "Grabbing LCD display: Overall design, chip selection and performance"
 date: 2026-08-19 11:00:00+08:00
 categories: embedded
+image: /images/aq-monitor/block-diagram.png
 excerpt: >-
   Now that we got a basic LCD grabber working, the next step is to move forward towards a design that taps on the LCD display lines while still keeping the display functional. We'll end up manufacturing a PCB for this purpose, but that'll be for the next article.
 ---
