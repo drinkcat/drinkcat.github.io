@@ -49,6 +49,14 @@ This pushes me towards a **custom PCB** to shrink the design: Routing the 39 LCD
 
 However, due to local regulations, importing WiFi-enabled devices is a headache. So I'll go for a split design: the custom PCB routes the LCD signals to an on-board MCU, with a couple of pins to transmit the data over UART to an off-the-shelf WiFi-enabled board. Just like the [zapper PCB]({% post_url 2026-05-23-zapper-pcb %}), I picked the [Seeed Studio XIAO ESP32-C6](https://wiki.seeedstudio.com/xiao_esp32c6_getting_started/) board: small footprint, and I can just add simple 2.54mm headers on my custom PCB to slot in the Xiao board.
 
+{% comment %}
+This diagram is also the post's social preview image (see `image:` in
+the frontmatter). If you edit it, re-render the PNG to keep them in sync:
+extract this <svg> element to a file, insert a white background rect
+(<rect x="-10" y="35" width="590" height="210" fill="#ffffff"/>) right
+after the opening tag -- crawlers show it on dark backgrounds otherwise --
+then: rsvg-convert -w 1140 -o images/aq-monitor/block-diagram.png that.svg
+{% endcomment %}
 <svg viewBox="0 45 570 190" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
   <defs>
     <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
