@@ -2,7 +2,7 @@
 layout: post
 title: "Grabbing LCD display content on an air quality monitor"
 date: 2026-07-21 11:00:00+08:00
-categories: linux
+categories: embedded
 image: /images/aq-monitor/rp2350-setup.jpg
 excerpt: >-
   A few years ago, I bought a simple air quality monitor. It's not "smart", and the data is simply shown on a LCD display. I went on a small adventure trying to convert it to a connected device, and extract the data so that it could be plotted on a graph (e.g. to tell the effectiveness of an air purifier).<br /><br />
