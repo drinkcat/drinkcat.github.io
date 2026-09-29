@@ -180,7 +180,7 @@ The key here was to recognize that digit updates are only composed of 2 differen
 
 <figure style="text-align: center">
   <iframe width="315" height="560" src="https://www.youtube.com/embed/CnENXiT2JiE" frameborder="0" allowfullscreen></iframe>
-  <figcaption>Notice the large uniform paints on device reset, and how individual digits are only composed of 2 colors.</figcaption>
+  <figcaption><em>Notice the large uniform paints on device reset, and how individual digits are only composed of 2 colors.</em></figcaption>
 </figure>
 
 ---
