@@ -5,12 +5,12 @@ date: 2026-09-29 11:00:00+08:00
 categories: embedded
 image: /images/aq-monitor/blue-wire-preview.jpg
 excerpt: >-
-  We got a basic LCD grabber working, and we selected chips and a general design for the system, it's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout.
+  We got a basic LCD grabber working, and we selected chips and a general design for the system. It's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout. This is quite different from a usual EE flow where one would start with schematics.
 ---
 
 This is the third part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}), and the second part is [here]({% post_url 2026-08-19-air-quality-monitor-esp32-stm32 %}).
 
-We got a basic LCD grabber working, and we selected chips and a general design for the system, it's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout.
+We got a basic LCD grabber working, and we selected chips and a general design for the system. It's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout. This is quite different from a usual EE flow where one would start with schematics.
 
 <svg viewBox="0 45 570 190" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
   <defs>
@@ -52,9 +52,11 @@ We got a basic LCD grabber working, and we selected chips and a general design f
 In a [previous post]({% post_url 2026-05-23-zapper-pcb %}), I went for a more "classical" PCB design flow, starting with schematics (which I failed to generate with Claude), then moving on to PCB layout.
 
 Here, I tried a flow that looks a bit more like software engineering:
-I started with a [PCB design spec](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/pcb_spec.md)[^1], trying to finalize as much as possible of the design with Claude prompts, letting it record questions at the end of the document, and slowly going through them together. I also fed it datasheets and manuals of the STM32 chip, to help it with pin assignment, and necessary external circuits (reset, filtering caps...).
+I started with a [PCB design spec](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/pcb_spec.md)[^1], using Claude to finalize as much as possible of the design, letting it record questions at the end of the document, and slowly going through them together. I also fed it datasheets and manuals of the STM32 chip, to help it with pin assignment, and necessary external circuits (reset, filtering caps...).
 
-I then moved on to ask Claude for a SKiDL script for the circuit, iterating back to the design doc as required. [SKiDL](https://github.com/devbisme/skidl) is basically a Python description of the netlist. For example, this describes the MCU and status LED:
+I then moved on to ask Claude for a SKiDL script for the circuit, iterating back to the design doc as required. [SKiDL](https://github.com/devbisme/skidl) is a Python description of the netlist, think of it as "schematics as code", version-controlled, and a much better fit for LLMs.
+
+For example, this describes the MCU and status LED:
 
 <div class="small-code" markdown="1">
 
@@ -107,7 +109,9 @@ The SKiDL script can then be run to generate a netlist that can be imported into
 
 I immediately moved on to PCB layout, and ended up doing most of it by hand: partly because I had never done this, partly because I hadn't heard many good things about AI-based automated tools (at least as of early 2026).
 
-Unlike a normal EE flow, I did not spend time drawing schematics. This is probably acceptable for a one-person project: I reviewed and made changes to the design/pinout as I placed and routed components. Iterating from the design doc/SKiDL is actually fairly easy: prompt Claude to update both, regenerate the netlist, then just press File->Import->Netlist in KiCad. KiCad then smartly adjusts connections and components, and in the worst case, DRC checks will fail.
+Unlike a normal EE flow, I did not spend time drawing schematics. This is probably acceptable for a one-person project: I reviewed and made changes to the design/pinout as I placed and routed components. I'm not completely sure how that would scale for larger projects.
+
+Iterating from the design doc/SKiDL is fairly easy: prompt Claude to update both, regenerate the netlist, then just press File->Import->Netlist in KiCad. KiCad then smartly adjusts connections and components, and in the worst case, DRC checks will fail.
 
 {% include img.html src="/images/aq-monitor/pcb-layout-annotated.png" svg="aq-monitor/pcb-layout-annotated.svg" width="70%" alt="PCB layout: STM32F103, ESP32-C6 XIAO footprint, flex connectors to the LCD and main board, status LED, power/reset and SWD headers" %}
 
@@ -121,7 +125,7 @@ We also need to add additional vias to tap the lines and connect them to the STM
 
 I asked Claude to help, and it came up with this [horrible horrible thing](https://github.com/drinkcat/aq-lcd-grab/blob/main/pcb/route_lcd_bus.py), basically doing some glorified string replacement directly into the PCB layout file. Iterating on this was also reasonably easy: run script, press File -> Revert on KiCad, inspect, laugh at Claude silliness, ask it to fix stuff, iterate.
 
-I selected the exact placement of the vias, swapping pins on the STM32 as required to make routing easier, as we have facilities in the software to swap bits of the captured data anyway.
+I selected the exact placement of the vias, tweaking the STM32 pin assignments to make routing easier, as we have facilities in the software to swap bits of the captured data anyway.
 
 <div class="img-row">
 {% include img.html src="/images/aq-monitor/flex-connector-fanout.png" alt="Close-up of J1 (main board flex connector): vias to fan out the two staggered pad rows" width="100%" %}
@@ -134,7 +138,7 @@ The final, routed, PCB, looks like this. This is a 4-layer PCB (2 layers would n
 
 ## Manufacturing and assembly
 
-Confidently enough, I then pressed the button on the JLCPCB website, paid a whopping 21.16 USD for 5 boards (with shipping), and waited a week.
+Confident enough, I then pressed the button on the JLCPCB website, paid a whopping 21.16 USD for 5 boards (with shipping), and waited a week.
 
 Then I got the boards, assembled everything, and started scratching my head... Something looked very wrong in the capture, with such strange behaviour that I went down a rabbit hole trying to figure out if the STM32 I used for prototyping was a genuine part (and the presumably genuine JLCPCB part was actually underperforming).
 
@@ -144,9 +148,9 @@ Turns out, CS and WR got swapped. I think this came from a mix-up during my reve
 
 And finally, a fully working version. The ESP32-C6 runs a web server you can see displayed on the laptop, showing a mirror of the physical display, with the values decoded.
 
-{% include img.html src="/images/aq-monitor/working-prototype.jpg" alt="Working prototype: the grabbed LCD contents mirrored in a browser. The accute reader will notice that the web version is slightly delayed." width="60%" %}
+{% include img.html src="/images/aq-monitor/working-prototype.jpg" alt="Working prototype: the grabbed LCD contents mirrored in a browser. The acute reader will notice that the web version is slightly delayed." width="60%" %}
 
-The next post will look at the details of the implementation, and Home Assistant integration.
+The next post will (likely) look at the firmware implementation details, and Home Assistant integration.
 
 [^1]: Partially outdated, as often with design docs.
 [^2]: I believe the statement is correct but Claude as a reviewer of this post is unhappy with it somehow.
