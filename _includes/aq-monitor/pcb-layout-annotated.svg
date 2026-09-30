@@ -1,0 +1,62 @@
+<!-- Inlined into posts via img.html's svg= parameter. Also the source for
+     images/aq-monitor/pcb-layout-annotated.png (the lightbox full-size view).
+     Regenerate that with (href made relative so rsvg-convert finds the board image):
+       sed 's|href="/images/aq-monitor/|href="|' _includes/aq-monitor/pcb-layout-annotated.svg > images/aq-monitor/tmp.svg
+       rsvg-convert images/aq-monitor/tmp.svg -o images/aq-monitor/pcb-layout-annotated.png && rm images/aq-monitor/tmp.svg
+     Board image (pcb-layout.png, 748x1142) is placed at x=290. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1278 1142" style="width: 100%; height: auto; display: block;">
+  <defs>
+    <marker id="pcbann-arrow" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff7a00"/>
+    </marker>
+    <style>
+      .pcbann-lbl { font: bold 28px sans-serif; fill: #222; }
+      .pcbann-sub { font: 23px sans-serif; fill: #555; }
+      .pcbann-arr { stroke: #ff7a00; stroke-width: 5; fill: none; marker-end: url(#pcbann-arrow); }
+      .pcbann-halo { stroke: #000; stroke-width: 9; fill: none; opacity: 0.6; }
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#fff"/>
+  <image x="290" y="0" width="748" height="1142" href="/images/aq-monitor/pcb-layout.png"/>
+
+  <!-- Left side -->
+  <text class="pcbann-lbl" x="16" y="88">J3: 3V3/reset</text>
+  <text class="pcbann-sub" x="16" y="118">(PIC32MM reset)</text>
+  <path class="pcbann-halo" d="M242,78 L376,78"/>
+  <path class="pcbann-arr"  d="M242,78 L376,78"/>
+
+  <text class="pcbann-lbl" x="16" y="299">J5: SWD</text>
+  <text class="pcbann-sub" x="16" y="329">(STM32 debug)</text>
+  <path class="pcbann-halo" d="M143,289 L318,289"/>
+  <path class="pcbann-arr"  d="M143,289 L318,289"/>
+
+  <text class="pcbann-lbl" x="16" y="581">U1: STM32F103</text>
+  <path class="pcbann-halo" d="M242,571 L347,571"/>
+  <path class="pcbann-arr"  d="M242,571 L347,571"/>
+
+  <text class="pcbann-lbl" x="16" y="878">D1: status LED</text>
+  <path class="pcbann-halo" d="M259,868 L330,868"/>
+  <path class="pcbann-arr"  d="M259,868 L330,868"/>
+
+  <text class="pcbann-lbl" x="16" y="1088">J4: 5V power</text>
+  <path class="pcbann-halo" d="M226,1078 L412,1078"/>
+  <path class="pcbann-arr"  d="M226,1078 L412,1078"/>
+
+  <!-- Right side -->
+  <text class="pcbann-lbl" x="1078" y="227">J2: flex</text>
+  <text class="pcbann-sub" x="1078" y="257">to LCD</text>
+  <path class="pcbann-halo" d="M1068,217 L956,217"/>
+  <path class="pcbann-arr"  d="M1068,217 L956,217"/>
+
+  <text class="pcbann-lbl" x="1078" y="603">ESP32-C6</text>
+  <text class="pcbann-sub" x="1078" y="633">XIAO footprint</text>
+  <path class="pcbann-halo" d="M1068,593 L994,593"/>
+  <path class="pcbann-arr"  d="M1068,593 L994,593"/>
+
+  <text class="pcbann-lbl" x="1078" y="997">J1: flex</text>
+  <text class="pcbann-sub" x="1078" y="1027">to main board</text>
+  <path class="pcbann-halo" d="M1068,987 L956,987"/>
+  <path class="pcbann-arr"  d="M1068,987 L956,987"/>
+</svg>

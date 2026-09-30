@@ -6,24 +6,57 @@ categories: embedded
 image: TODO
 ---
 
-This is the third part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}), and the second part is here (TODO).
+This is the third part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}), and the second part is [here]({% post_url 2026-08-19-air-quality-monitor-esp32-stm32 %}).
 
 We got a basic LCD grabber working, and we selected chips and a general design for the system, it's now time to design a PCB. I tried a flow where Claude works on design doc for the PCB, creates a SKiDL script to describe the circuit, generate a netlist, and then me (human) does the PCB layout.
 
-(add general schematics from last post here)
+<svg viewBox="0 45 570 190" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+    <marker id="arrow2b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2a5db0"/>
+    </marker>
+  </defs>
+
+  <rect x="5" y="52" width="150" height="96" rx="6" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="80" y="98" text-anchor="middle" font-size="15" fill="#222">main board</text>
+  <text x="80" y="120" text-anchor="middle" font-size="12" fill="#555">(existing AQ device)</text>
+
+  <line x1="155" y1="100" x2="235" y2="100" stroke="#333" stroke-width="3" marker-end="url(#arrow2)"/>
+  <text x="195" y="88" text-anchor="middle" font-size="11" fill="#555">flex 39p</text>
+
+  <rect x="235" y="52" width="150" height="96" rx="6" fill="#eaf2ff" stroke="#2a5db0" stroke-width="1.5"/>
+  <text x="310" y="98" text-anchor="middle" font-size="15" font-weight="600" fill="#1a3d75">Capture Board</text>
+  <text x="310" y="120" text-anchor="middle" font-size="12" fill="#1a3d75">(MCU w/o WiFi)</text>
+
+  <line x1="385" y1="100" x2="475" y2="100" stroke="#333" stroke-width="3" marker-end="url(#arrow2)"/>
+  <text x="430" y="88" text-anchor="middle" font-size="11" fill="#555">flex 39p</text>
+
+  <rect x="475" y="52" width="90" height="96" rx="6" fill="#f5f5f5" stroke="#333" stroke-width="1.5"/>
+  <text x="520" y="105" text-anchor="middle" font-size="15" fill="#222">LCD</text>
+
+  <line x1="310" y1="148" x2="310" y2="178" stroke="#2a5db0" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow2b)"/>
+  <text x="327" y="167" font-size="11" fill="#2a5db0">UART</text>
+
+  <rect x="235" y="178" width="150" height="50" rx="6" fill="#eafbea" stroke="#2a8c3a" stroke-width="1.5"/>
+  <text x="310" y="200" text-anchor="middle" font-size="14" font-weight="600" fill="#1c5e28">XIAO ESP32-C6</text>
+  <text x="310" y="218" text-anchor="middle" font-size="12" fill="#1c5e28">(WiFi)</text>
+</svg>
 
 ### AI-first PCB design
 
-In a previous post (TODO LINK), I went for a more "classical" PCB design flow, starting with schematics (which I failed to generate with Claude), then moving on to PCB layout.
+In a [previous post]({% post_url 2026-05-23-zapper-pcb %}), I went for a more "classical" PCB design flow, starting with schematics (which I failed to generate with Claude), then moving on to PCB layout.
 
-Here, I tried a flow that looks a bit more like software engineering.
-I started with a [PCB design spec](link to pcb_spec.md) (footnote: partially outdated, as often with design docs), trying to input as much as possible of the design into Claude prompts. I also fed it datasheets and manuals of the STM32 chip, to help it with pin assignment, and necessary external circuits (reset, filtering caps...).
+Here, I tried a flow that looks a bit more like software engineering:
+I started with a [PCB design spec](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/pcb_spec.md)[^1], trying to finalize as much as possible of the design with Claude prompts. I also fed it datasheets and manuals of the STM32 chip, to help it with pin assignment, and necessary external circuits (reset, filtering caps...).
 
-I then moved on to ask Claude for a SKiDL description[is this the right word] of the circuit (iterating back to the design doc as required).
+I then moved on to ask Claude for a SKiDL script for the circuit, iterating back to the design doc as required. [SKiDL](https://github.com/devbisme/skidl) is basically a Python description of the netlist, for example, the the MCU and the status LED:
 
-SKiDL[add link] is basically a Python description of the netlist, for example, the the MCU and the status LED:
+<div class="small-code" markdown="1">
 
-```
+```python
 # =============================================================================
 # STM32F103C8T6 (LQFP-48) — capture MCU
 # =============================================================================
@@ -62,23 +95,25 @@ D_LED[1] += LED_STATUS    # cathode (pin 1) -> PC13
 U1[2] += LED_STATUS
 ```
 
+</div>
+
 The comments are quite insightful about how Claude went about selecting pins, trying to keep compatibility with my prototyping rig where possible, making sure current rating works out, and making it possible to downgrade to STM32F0 where possible.
 
-### Netlist to PCB layout
+#### Netlist to PCB layout
 
 The SKiDL script can then be run to generate a netlist, that can be imported into KiCad.
 
 I immediately moved on to PCB layout, and ended up doing most of it by hand: partly because I had never done this, partly because I didn't hear much good things about AI-based automated tools (at least at the time, 4-5 months ago).
 
-Unlike a normal EE flow, I did not spend time drawing schematics, this is probably acceptable for a single-person project: I did review and design/pinout changes as I placed and routed components. Iterating from the design doc/SKiDL is actually fairly easy, prompt Claude to update both, regenerate the netlist, then just press File->Import->Netlist in KiCad: KiCad then smartly adjusts connections/components.
+Unlike a normal EE flow, I did not spend time drawing schematics, this is probably acceptable for a single-person project: I did review and design/pinout changes as I placed and routed components. Iterating from the design doc/SKiDL is actually fairly easy, prompt Claude to update both, regenerate the netlist, then just press File->Import->Netlist in KiCad: KiCad then smartly adjusts connections/components, and worst case, DRC checks will fail.
 
-{% include img.html src="/images/aq-monitor/pcb-layout-annotated.png" alt="PCB layout: STM32F103, ESP32-C6 XIAO footprint, flex connectors to the LCD and main board, status LED, power/reset and SWD headers" %}
+{% include img.html src="/images/aq-monitor/pcb-layout-annotated.png" svg="aq-monitor/pcb-layout-annotated.svg" width="70%" alt="PCB layout: STM32F103, ESP32-C6 XIAO footprint, flex connectors to the LCD and main board, status LED, power/reset and SWD headers" %}
 
-### Display connector lane and tap routing
+#### Display connector lane and tap routing
 
 Doing most of the routing by hand was somewhat okay, and not too repetitive for human self. However, connecting the 2 39-pin connectors, with the required vias to avoid violating DRC rules, and the required 19 taps to the STM32 became extremely tedious.
 
-I asked Claude to help me with this, and it came up with this horrible horrible thing (https://github.com/drinkcat/aq-lcd-grab/blob/main/pcb/route_lcd_bus.py), basically doing some glorified string replacement directly into the PCB layout file. Iterating on this was also reasonably easy: Run script, press File -> Revert on KiCad, inspect, laugh at Claude silliness, ask it to fix stuff, iterate.
+I asked Claude to help me with this, and it came up with this [horrible horrible thing](https://github.com/drinkcat/aq-lcd-grab/blob/main/pcb/route_lcd_bus.py), basically doing some glorified string replacement directly into the PCB layout file. Iterating on this was also reasonably easy: Run script, press File -> Revert on KiCad, inspect, laugh at Claude silliness, ask it to fix stuff, iterate.
 
 {% include img.html src="/images/aq-monitor/lcd-bus-routing.png" alt="Flex connector layout: LCD connector (top) to main board connector (bottom)" width="40%" %}
  
@@ -92,3 +127,5 @@ I asked Claude to help me with this, and it came up with this horrible horrible 
 {% include img.html src="/images/aq-monitor/bodge-wire.jpg" alt="Assembled board, with a bodge wire" width="60%" %}
 
 {% include img.html src="/images/aq-monitor/working-prototype.jpg" alt="Working prototype: the grabbed LCD contents mirrored in a browser" width="60%" %}
+
+[^1]: Partially outdated, as often with design docs.

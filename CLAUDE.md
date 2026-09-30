@@ -20,6 +20,11 @@ Jekyll blog. Posts live in `_posts/`, named `YYYY-MM-DD-slug.markdown`.
    - `alt` doubles as the visible `<figcaption>` -- omit it for no caption.
    - `width` defaults to `100%`; use a smaller value (e.g. `80%`) for tall/narrow photos.
    - Multiple images side by side: wrap includes in `<div class="img-row">...</div>`.
+   - Annotated diagrams with text: add `svg="dir/name.svg"` (a file under
+     `_includes/`) to render that SVG inline instead of the thumbnail, so
+     labels stay sharp at any size/DPI. `src` is still the full-size PNG
+     the lightbox opens; no `-thumb` file is needed. See
+     `_includes/aq-monitor/pcb-layout-annotated.svg` for the pattern.
 4. For inline formula/small images that don't need a lightbox, use a
    plain `<img>` tag instead:
    ```

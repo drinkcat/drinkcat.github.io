@@ -2,9 +2,15 @@
 {% assign src_base = include.src | split: "." | reverse | shift | reverse | join: "." %}
 {% assign src_thumb = src_base | append: "-thumb." | append: src_ext %}
 <figure style="text-align: center">
+  {% if include.svg %}
+  <a onclick="document.getElementById('img-{{ include.src | slugify }}').classList.add('open')" style="cursor: zoom-in; display: block; margin: 0 auto; max-width: {{ include.width | default: '100%' }}">
+    {% include {{ include.svg }} %}
+  </a>
+  {% else %}
   <a onclick="document.getElementById('img-{{ include.src | slugify }}').classList.add('open')" style="cursor: zoom-in">
     <img src="{{ src_thumb }}" alt="{{ include.alt }}" style="max-width: {{ include.width | default: '100%' }}">
   </a>
+  {% endif %}
   {% if include.alt %}<figcaption><em>{{ include.alt }}</em></figcaption>{% endif %}
 </figure>
 
