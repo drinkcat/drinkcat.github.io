@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Grabbing LCD display: PCB design, layout, routing"
-date: 2026-10-05 11:00:00+08:00
+date: 2026-10-05 10:00:00+08:00
 categories: embedded
 image: /images/aq-monitor/blue-wire-preview.jpg
 excerpt: >-
