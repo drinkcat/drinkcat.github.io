@@ -10,7 +10,7 @@ excerpt: >-
 
 This is the second part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}). This one is perhaps a little drier, and explains design constraints.
 
-Now that we got a basic LCD grabber working, the next step is to move forward towards a design that taps on the LCD display lines while still keeping the display functional. We'll end up manufacturing a PCB for this purpose, but that'll be for the [next article]({% post_url 2026-09-29-air-quality-monitor-pcb-design %}).
+Now that we got a basic LCD grabber working, the next step is to move forward towards a design that taps on the LCD display lines while still keeping the display functional. We'll end up manufacturing a PCB for this purpose, but that'll be for the [next article]({% post_url 2026-10-05-air-quality-monitor-pcb-design %}).
 
 ### Design constraints
 
@@ -187,6 +187,6 @@ The key here was to recognize that digit updates are only composed of 2 differen
 
 Despite the heavy constraints, and painful trial and error, the STM32 implementation works well enough (full code [here](https://github.com/drinkcat/aq-lcd-grab/tree/main/firmware-stm32)), and I also implemented the digit decoding parts in ESP32, but we'll cover this briefly in a later post.
 
-We'll move on to the [Claude-assisted PCB design]({% post_url 2026-09-29-air-quality-monitor-pcb-design %}) next.
+We'll move on to the [Claude-assisted PCB design]({% post_url 2026-10-05-air-quality-monitor-pcb-design %}) next.
 
 [^1]: Technically, these are "promotional extended" parts, but they are billed just like "basic" parts.
