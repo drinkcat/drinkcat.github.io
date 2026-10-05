@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Grabbing LCD display: PCB design, layout, routing"
-date: 2026-09-29 11:00:00+08:00
+date: 2026-10-05 11:00:00+08:00
 categories: embedded
 image: /images/aq-monitor/blue-wire-preview.jpg
 excerpt: >-
@@ -10,7 +10,7 @@ excerpt: >-
 
 This is the third part of my LCD display grabbing adventure, the first part is [here]({% post_url 2026-07-12-air-quality-monitor-lcd-grab %}), and the second part is [here]({% post_url 2026-08-19-air-quality-monitor-esp32-stm32 %}).
 
-We got a basic LCD grabber working, and we selected chips and a general design for the system. It's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout. This is quite different from a usual EE flow where one would start with schematics.
+We got the basic LCD grabber working, and we selected chips and a general design for the system. It's now time to design a PCB. I tried a flow where Claude works on a design doc for the PCB, creates a SKiDL script to describe the circuit, generates a netlist, and then this human does the PCB layout. This is quite different from a usual EE flow where one would start with schematics.
 
 <svg viewBox="0 45 570 190" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
   <defs>
@@ -107,7 +107,7 @@ The comments are quite insightful about how Claude went about selecting pins, tr
 
 The SKiDL script can then be run to generate a netlist that can be imported into KiCad.
 
-I immediately moved on to PCB layout, and ended up doing most of it by hand: partly because I had never done this, partly because I hadn't heard many good things about AI-based automated tools (at least as of early 2026).
+I immediately moved on to PCB layout, and ended up doing most of it by hand: partly because I had never done this, partly because I hadn't heard many good things about AI-based automated tools (at least as of early/mid 2026).
 
 Unlike a normal EE flow, I did not spend time drawing schematics. This is probably acceptable for a one-person project: I reviewed and made changes to the design/pinout as I placed and routed components. I'm not completely sure how that would scale for larger projects.
 
@@ -117,13 +117,13 @@ Iterating from the design doc/SKiDL is fairly easy: prompt Claude to update both
 
 ### Display connector lane and tap routing
 
-Doing most of the routing by hand was somewhat okay, and not too repetitive for this human. However, connecting the two 39-pin connectors (J1 and J2 above), with the required vias to avoid violating DRC rules, and the required 19 taps to the STM32 became extremely tedious.
+Doing most of the routing by hand was somewhat okay, and not too repetitive for this human. However, connecting the two 39-pin connectors (J1 and J2 above), with the required vias to avoid violating DRC rules, and the required 19 taps to the STM32, became extremely tedious.
 
 Basically, routing the 39 pins between the connectors is a repeated pattern. We route the top layer pins (the connectors' pads) to 2 other layers (we have 4 in total). The tricky bit is that we need to add "kinks" to the traces around the vias to avoid violating design rules.
 
 We also need to add additional vias to tap the lines and connect them to the STM32. Similarly, the vias require kinks in the lines in the 2 other layers.
 
-I asked Claude to help, and it came up with this [horrible horrible thing](https://github.com/drinkcat/aq-lcd-grab/blob/main/pcb/route_lcd_bus.py), basically doing some glorified string replacement directly into the PCB layout file. Iterating on this was also reasonably easy: run script, press File -> Revert on KiCad, inspect, laugh at Claude silliness, ask it to fix stuff, iterate.
+I asked Claude to help, and it came up with this [horrible horrible thing](https://github.com/drinkcat/aq-lcd-grab/blob/main/pcb/route_lcd_bus.py), basically doing some glorified string replacement directly into the PCB layout file. Iterating on this was reasonably easy though: run script, press File -> Revert on KiCad, inspect, laugh at Claude silliness, ask it to fix stuff (or just start from scratch), iterate.
 
 I selected the exact placement of the vias, tweaking the STM32 pin assignments to make routing easier, as we have facilities in the software to swap bits of the captured data anyway.
 
@@ -140,9 +140,9 @@ The final, routed, PCB, looks like this. This is a 4-layer PCB (2 layers would n
 
 Confident enough, I then pressed the button on the JLCPCB website, paid a whopping 21.16 USD for 5 boards (with shipping), and waited a week.
 
-Then I got the boards, assembled everything, and started scratching my head... Something looked very wrong in the capture, with such strange behaviour that I went down a rabbit hole trying to figure out if the STM32 I used for prototyping was a genuine part (and the presumably genuine JLCPCB part was actually underperforming).
+Then I got the boards, assembled everything, and started scratching my head... Something looked very wrong in the capture, with such strange behaviour that I went down a rabbit hole trying to figure out if the STM32 I used for prototyping was a genuine part (and whether the presumably genuine JLCPCB part was actually underperforming).
 
-Turns out, CS and WR got swapped. I think this came from a mix-up during my reverse engineering, which I did not re-check carefully once I found the LCD spec (or, I just forgot to prompt Claude to be "extra careful"). WR is the worst pin to swap, as it is the trigger for the data capture. Luckily though, CS is not actually used, so I just cut that trace, scratched the silkscreen, and jumped a wire. Claude wrote a short [erratum](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/pcb_spec.md#v1-errata), and well, I guess it's my fault, or, anyway, I'm ultimately responsible!
+Turns out, CS and WR got swapped. I think this came from a mix-up during my reverse engineering, which I did not re-check carefully once I found the LCD spec (or, I just forgot to prompt Claude to be "extra careful"). WR is the worst pin to swap, as it is the trigger for the data capture. Luckily though, CS is not actually used, so I just cut that trace, and jumped a wire from the actual WR. Claude wrote a short [erratum](https://github.com/drinkcat/aq-lcd-grab/blob/main/docs/pcb_spec.md#v1-errata), and well, I guess it's my fault, or, anyway, I'm ultimately responsible!
 
 {% include img.html src="/images/aq-monitor/blue-wire.jpg" alt="Claude can't rework your board! At least this was fun!" width="60%" %}
 
